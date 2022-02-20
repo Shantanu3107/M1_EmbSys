@@ -39,9 +39,19 @@ Humidity sensors work by detecting changes that alter electrical currents or tem
 ## High level requierments
 |ID|specification|
 |--|--|
-|HR01|The watch must be turned on when push button is pressed for 5 seconds|
-|HR02|The watch display must turn on when tilted.|
+|HR 01|The watch must be turned on when push button is pressed for 5 seconds|
+|HR 02|The watch display must turn on when tilted.|
+|HR 03|User shall be able to mesaure the number of steps walked|
+|HR 04|User shall be able to see the current room temperature|
+|HR 05|User shall be able to monitor blood pressure and herat beat|
+|HR 06|User shall be able to connect the smart watch with smartphone through bluetooth|
+
+## Low level requierments
+|ID|Specification|
+|--|--|
 |||
+
+
 
 
 
