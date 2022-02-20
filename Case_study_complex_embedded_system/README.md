@@ -36,5 +36,13 @@ How does the humidity sensors work?
 Humidity sensors work by detecting changes that alter electrical currents or temperature in the air.  Two thermal sensors conduct electricity based upon the humidity of the surrounding air. One sensor is encased in dry nitrogen while the other measures ambient air. The difference between the two measures the humidity.
 
 
+## High level requierments
+|ID|specification|
+|--|--|
+|HR01|The watch must be turned on when push button is pressed for 5 seconds|
+|HR02|The watch display must turn on when tilted.|
+|||
+
+
 
 
