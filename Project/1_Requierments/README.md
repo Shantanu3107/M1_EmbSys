@@ -1,66 +1,43 @@
 
-## Requierments
+## Distance Measurement using  AVR Microcontroller And HC-SR04
 
 ## Introduction
-A smartwatch is a wearable computer in the form of a watch; modern smartwatches provide a local touchscreen interface for daily use, while an associated smartphone app provides for management and telemetry (such as long-term biomonitoring). While early models could perform basic tasks, such as calculations, digital time telling, translations, and game-playing, 2010s smartwatches have more general functionality closer to smartphones, including mobile apps, a mobile operating system and WiFi/Bluetooth connectivity. Some smartwatches function as portable media players, with FM radio and playback of digital audio and video files via a Bluetooth headset. Some models, called watch phones (or vice versa), have mobile cellular functionality like making calls
 
+In this project, we are going to use an HC-SR04 ultrasonic sensor to give your robot the perception of distance.This popular ultrasonic distance sensor provides stable and accurate distance measurements from 2cm to 450cm. It has a focus of less than 15 degrees and an accuracy of about 2mm.This sensor uses ultrasonic sound to measure distance just like bats and dolphins do. Ultrasonic sound has such a high pitch that humans cannot hear it. This particular sensor sends out an ultrasonic sound that has a frequency of about 40 kHz. The sensor has two main parts: a transducer that creates an ultrasonic sound and another that listens for its echo. To use this sensor to measure distance, the robot's brain must measure the amount of time it takes for the ultrasonic sound to travel.Sound travels at approximately 340 meters per second. This corresponds to about 29.412µs (microseconds) per centimeter.
+We know that sound vibrations can not penetrate through solids. So what happens is, when a source of sound generates vibrations they travel through air at a speed of 220 meters per second. These vibrations when they meet our ear we describe them as sound. As said earlier these vibrations can not go through solid, so when they strike with a surface like wall, they are reflected back at the same speed to the source, which is called echo.
+Ultrasonic sensor “HC-SR04” provides an output signal proportional to distance based on the echo. The sensor here generates a sound vibration in ultrasonic range upon giving a trigger, after that it waits for the sound vibration to return. Now based on the parameters, sound speed (220m/s) and time taken for the echo to reach the source, it provides output pulse proportional to distance.
+To measure the distance the sound has travelled we use the formula:
 
-## Push button(power up)
-The push button is used  to turn the device on and off and can be used even to restart the watch .
+Distance = (Time x SpeedOfSound) / 2
 
-## Voltage regulator
-The voltage regulator can connect the supply voltage divided output from the IC directly to the A/D converter of the low-voltage microcontroller, allowing the microcontroller to monitor the battery voltage without a divider resistor.
+The "2" is in the formula because the sound has to travel back and forth. First the sound travels away from the sensor, and then it bounces off of a surface and returns back.
 
-## Controller
-The controller controls the various functions on the watch such as step mesaurment temperature sensor etc, and diverges the data to the memory chip for storing and this data can also be displayed on the LCD display.
+The easy way to read the distance as centimeters is to use the formula:
 
-## Bluetooth
-The bluetooth establishes a connection between the watch and the device which it is connected with which is gnereally a samrtphone and we can also access the features of the watch through an application within the smartphone .
+Centimeters = ((Microseconds / 2) / 29).
 
-## LCD
-The LCD display acts as an output for the all the inormation that is given out by the different sensors . 
+## Component Requiered 
 
-## Memory chip
-The memory chip stores all the data from all the sensors that is processed and btought in by the converter.
-It also stores the time , date and other general information .
+Hardware: ATMEGA32, Power supply (5v), AVR-ISP PROGRAMMER, JHD_162ALCD (16x2LCD), 1000uF capacitor, 10KΩ resistor (2 pieces) , HC-SR04 sensor.
 
-## Heartbeat mesaurment sensor
-Heart beat mesaurment sensor uses infrared rays to mesaure the pulse and give the output in the form of a particular number .
+Software: VSCode, SimulIde, Ardunino
 
-## Blood pressure monitoring 
-In blood pressure monitoring optical sensors  check if vessels are tightening or widening. An algorithm then uses those two bits of information, along with heart rate, to estimate blood pressure .
+## 1.ATMEGA32
+The high-performance, low-power Microchip 8-bit AVR® RISC-based microcontroller combines 32 KB ISP flash memory with read-while-write capabilities, 1 KB EEPROM, 2 KB SRAM, 54/69 general purpose I/O lines, 32 general purpose working registers, a JTAG interface for boundary-scan and on-chip debugging/programming, three flexible timer/counters with compare modes, internal and external interrupts, serial programmable USART, a universal serial interface (USI) with start condition detector, an 8-channel 10-bit A/D converter, programmable watchdog timer with internal oscillator, SPI serial port, and five software selectable power saving modes. The device operates between 1.8-5.5 volts.
 
-## Accelerometer 
-Accelerometer detects movement and tracks direction . It is the most common sensor that you will find inside a wearable. This sensor can track forward and backward movement, sense gravity and determine body's orientation, position and also rate of speed change.
+## 2. AVR-ISP Programmer
+Until now,Support IC manufacturer, pcs devices and keeps growing. High speed thanks to the flexible hardware engine. Programming speed adjustable for complicated application environments brought by user target board, length of ISP cable etc. Stand-alone and PC-Hosted (USB2.0 High Speed) dual mode; Supports ISP programming of devices with I2C, SPI, UART, BDM, MON, MW, JTAG, CAN, ICC, RS232 and any other serial port. ATE interface; Over-current and ESD protection to protect your equipment; DLL and API for easy integration into customers’ system.
 
-## Temperature sensor
-A temperature sensor  detects and measures hotness and coolness and converts it into an electrical signal.
+## 3.JHD_162ALCD (16x2LCD)
+This is 16 x 2 LCD Display with Yellow/Green Backlight ASCII Alphanumeric Character. 16×2 LCD Display Support mostly All Digital Microcontroller such as Arduino, 8051, PIC, AVR, ARM, MSP, COP8, STM, Raspberry Pi etc. About 16×2 LCD Display: 16×2 LCD is a basic 16 character by 2 line display Yellow/Green Back light.
 
-## Humidity sensor
-How does the humidity sensors work?
-Humidity sensors work by detecting changes that alter electrical currents or temperature in the air.  Two thermal sensors conduct electricity based upon the humidity of the surrounding air. One sensor is encased in dry nitrogen while the other measures ambient air. The difference between the two measures the humidity.
+## 1000uF capacitor
+1000uF 25V Electrolytic Capacitor is a high quality electrolytic capacitor which offers long life and high reliability. Electrolytic Capacitors are most commonly used type of capacitors in Electronic Circuits. Electrolytic Capacitors have 2 Polars - Positive and Negative.
 
+## 5. 10KΩ resistor (2 pieces)
+Commonly used in breadboards and perf boards, these 10K resistors make excellent pull-ups, pull-downs, and current limiters.A 10k ohm resistor has 4 color band: brown, black, orange, and gold for 5% tolerance, respectively. To determine the value of a given resistor look for the gold or silver tolerance band and rotate the resistor as in the photo on the left.
 
-## High level requierments
-|ID|specification|
-|--|--|
-|HR 01|User shall be able to turn the watch with push button|
-|HR 02|User shall be able to turn the display on when watch is tilted.|
-|HR 03|User shall be able to mesaure the number of steps walked|
-|HR 04|User shall be able to see the current room temperature|
-|HR 05|User shall be able to monitor blood pressure and herat beat|
-|HR 06|User shall be able to connect the smart watch with smartphone through bluetooth|
-|HR 07|User shall be able to read notifications of his smartphone on the display of smartwatch .|
-
-## Low level requierments
-|ID|Specification|
-|--|--|
-|LR 01|The push button must be pressed for 5seconds to turn on the watch|
-|LR 02|To turn on the display of the watch it must either be tilted or double tapped on thje screen.|
-|LR 03|Step counter must be able to detect the motion in order to count the number of steps walked .|
-|LR 04|To mesaure blood pressure user must turn on the blodd pressure monitoring system .|
-|LR 05|To mesaure heart beat user must turn on heart beat sensor .|
-|LR 06|To read notifications from the watch user must turn on bluetooth and sync the watch with the app and turn on notification setting .|
-
+## 6. HC-SR04 SENSOR
+This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.There are only four pins that you need to worry about on the HC-SR04: VCC (Power), Trig (Trigger), Echo (Receive), and GND (Ground). You will find this sensor very easy to set up and use for your next range-finding project.This sensor has additional control circuitry that can prevent inconsistent "bouncy" data depending on the application. The HC-SR04 Ultrasonic Distance Sensor is a sensor used for detecting the distance to an object using sonar.The HC-SR04 uses non-contact ultrasound sonar to measure the distance to an object, and consists of two ultrasonic transmitters (basically speakers), a receiver, and a control circuit.
 
 
