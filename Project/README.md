@@ -3,3 +3,8 @@
 ## Codacy Badges
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/81c44f23f3004cd6ae702a98b3341a83)](https://www.codacy.com/gh/Shantanu3107/M2_EmbSys/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Shantanu3107/M2_EmbSys&amp;utm_campaign=Badge_Grade)
 
+## Codiga badges
+
+https://api.codiga.io/project/31636/score/svg
+
+https://api.codiga.io/project/31636/status/svg
