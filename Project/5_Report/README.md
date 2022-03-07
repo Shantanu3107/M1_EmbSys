@@ -32,3 +32,36 @@ Commonly used in breadboards and perf boards, these 10K resistors make excellent
 
 ## 6. HC-SR04 SENSOR
 This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.There are only four pins that you need to worry about on the HC-SR04: VCC (Power), Trig (Trigger), Echo (Receive), and GND (Ground). You will find this sensor very easy to set up and use for your next range-finding project.This sensor has additional control circuitry that can prevent inconsistent "bouncy" data depending on the application. The HC-SR04 Ultrasonic Distance Sensor is a sensor used for detecting the distance to an object using sonar.The HC-SR04 uses non-contact ultrasound sonar to measure the distance to an object, and consists of two ultrasonic transmitters (basically speakers), a receiver, and a control circuit.
+
+## Requirements :
+## High Level Requirements
+|ID|	DESCRIPTION|
+|HLR01|	.|
+|HLR02|	.|
+|HLR03|.|
+|HLR04|.|
+
+## Low Level Requirements
+|ID|	Description	|
+|LLR01|	.|	
+|LLR02|	.|	
+|LLR03| .|
+|LLR04|	.|	
+|LLR05| .|
+
+## SWOT Analysis
+![image](https://user-images.githubusercontent.com/98769359/157095785-c2eb5957-48ad-4477-a412-8eface854241.png)
+
+## STRENGTHS
+Easy to install, manage and maintain and low maintenance.
+Highly reliable and Economically competitive.
+## WEAKNESSES
+The system may not show accurate distance after a certain distance range.
+When a problem arose, there is no built-in function to help identify the source of the failure.
+## OPPORTUNITIES
+Distance can be used without using mesauring tapes or instruments.
+## Threats
+Skills for repair/spare parts not available in most of the areas.
+Any sort of defect or fault in the circuit will cause problem in distance mesaurment.
+
+
