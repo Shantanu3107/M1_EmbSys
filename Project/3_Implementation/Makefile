@@ -1,7 +1,7 @@
 #Main application file name
 MAIN_APP = Distance
 #Main hex file path in windows format
-MAIN_HEX_PATH =C:\Users\Dell\.vscode\M2\M2_EmbSys\Project\4_TestplanAndOutput\$(MAIN_APP).hex
+MAIN_HEX_PATH =C:\Users\Dell\.vscode\M2\M2_EmbSys\Project\3_Implementation\$(MAIN_APP).hex
 
 # Compiler and other Section
 CC = avr-gcc

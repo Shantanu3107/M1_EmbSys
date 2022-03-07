@@ -3,17 +3,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
             "type": "shell",
+            "label": "Build",
             "command": "make",
-            "args": [] ,
+            "args": [],
             "problemMatcher": "$gcc",
             "group": {
                 "kind": "build",
                 "isDefault": true
-            
+            }
         }
-    }
-]
+    ]
 
 }

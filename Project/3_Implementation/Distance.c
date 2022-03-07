@@ -5,74 +5,108 @@
 #ifndef __AVR_ATmega8__
     #define __AVR_ATmega8__
 #endif 
+/*
+C Program for Distance Measurement using Ultrasonic Sensor and AVR Microocntroller
+ */ 
 
-#define DDRA
-#define PORTA
-#define PA0
-#define F_CPU 8000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#define F_CPU 1000000
 #include <util/delay.h>
-#include <string.h>
 #include <stdlib.h>
-#include "LCD_16x2_H_file.h"	/* Include LCD header file */
+#define DDRA
+#define enable            5
+#define registerselection 6
 
-#define  Trigger_pin	PA0	/* Trigger pin */
+void send_a_command(unsigned char command);
+void send_a_character(unsigned char character);
+void send_a_string(char *string_of_characters);
 
-int TimerOverflow = 0;
-
-ISR(TIMER1_OVF_vect)
-{
-	TimerOverflow++;	/* Increment Timer Overflow count */
-}
+static volatile int pulse = 0;
+static volatile int i = 0;
 
 int main(void)
 {
-	char string[10];
-	long count;
-	double distance;
-	
-	DDRA = 0x01;		/* Make trigger pin as output */
-	PORTD = 0xFF;		/* Turn on Pull-up */
-	
-	LCD_Init();
-	LCD_String_xy(1, 0, "Ultrasonic");
-	
-	sei();			/* Enable global interrupt */
-	TIMSK = (1 << TOIE1);	/* Enable Timer1 overflow interrupts */
-	TCCR1A = 0;		/* Set all bit to zero Normal operation */
+    DDRA = 0xFF;
+    DDRB = 0xFF;
+    DDRD = 0b11111011;
+    _delay_ms(50);
+    
+    GICR|=(1<<INT0);
+    MCUCR|=(1<<ISC00);
+    
+    TCCR1A = 0;
+    
+    int16_t COUNTA = 0;
+    char SHOWA [16];
+    
 
-	while(1)
-	{
-		/* Give 10us trigger pulse on trig. pin to HC-SR04 */
-		PORTA |= (1 << Trigger_pin);
-		_delay_us(10);
-		PORTA &= (~(1 << Trigger_pin));
-		
-		TCNT1 = 0;	/* Clear Timer counter */
-		TCCR1B = 0x41;	/* Capture on rising edge, No prescaler*/
-		TIFR = 1<<ICF1;	/* Clear ICP flag (Input Capture flag) */
-		TIFR = 1<<TOV1;	/* Clear Timer Overflow flag */
+    send_a_command(0x01); //Clear Screen 0x01 = 00000001
+    _delay_ms(50);
+    send_a_command(0x38);
+    _delay_ms(50);
+    send_a_command(0b00001111);
+    _delay_ms(50);
+    
+    sei();
+    
+    while(1)
+    {
+        PORTD|=(1<<PIND0);
+        _delay_us(15);
+        PORTD &=~(1<<PIND0);
+        
+        COUNTA = pulse/58;
+        send_a_string ("CIRCUIT DIGEST");
+        send_a_command(0x80 + 0x40 + 0);
+        send_a_string ("DISTANCE=");
+        itoa(COUNTA,SHOWA,10);
+        send_a_string(SHOWA);
+        send_a_string ("cm    ");
+        send_a_command(0x80 + 0);
 
-		/*Calculate width of Echo by Input Capture (ICP) */
-		
-		while ((TIFR & (1 << ICF1)) == 0);/* Wait for rising edge */
-		TCNT1 = 0;	/* Clear Timer counter */
-		TCCR1B = 0x01;	/* Capture on falling edge, No prescaler */
-		TIFR = 1<<ICF1;	/* Clear ICP flag (Input Capture flag) */
-		TIFR = 1<<TOV1;	/* Clear Timer Overflow flag */
-		TimerOverflow = 0;/* Clear Timer overflow count */
-
-		while ((TIFR & (1 << ICF1)) == 0);/* Wait for falling edge */
-		count = ICR1 + (65535 * TimerOverflow);	/* Take count */
-		/* 8MHz Timer freq, sound speed =343 m/s */
-		distance = (double)count / 466.47;
-
-		dtostrf(distance, 2, 2, string);/* distance to string */
-		strcat(string, " cm   ");	/* Concat unit i.e.cm */
-		LCD_String_xy(2, 0, "Dist = ");
-		LCD_String_xy(2, 7, string);	/* Print distance */
-		_delay_ms(200);
-	}
+    }
 }
-Video
+
+ISR(INT0_vect)
+{
+    if (i==1)
+    {
+        TCCR1B=0;
+        pulse=TCNT1;
+        TCNT1=0;
+        i=0;
+    }
+    if (i==0)
+    {
+        TCCR1B|=(1<<CS10);
+        i=1;
+    }
+}
+
+void send_a_command(unsigned char command)
+{
+    PORTB = command;
+    PORTD &= ~ (1<<registerselection);
+    PORTD |= 1<<enable;
+    _delay_ms(8);
+    PORTD &= ~1<<enable;
+    PORTB = 0;
+}
+
+void send_a_character(unsigned char character)
+{
+    PORTB = character;
+    PORTD |= 1<<registerselection;
+    PORTD |= 1<<enable;
+    _delay_ms(8);
+    PORTD &= ~1<<enable;
+    PORTB = 0;
+}
+void send_a_string(char *string_of_characters)
+{
+    while(*string_of_characters > 0)
+    {
+        send_a_character(*string_of_characters++);
+    }
+}
