@@ -14,7 +14,7 @@ C Program for Distance Measurement using Ultrasonic Sensor and AVR Microocntroll
 #define F_CPU 1000000
 #include <util/delay.h>
 #include <stdlib.h>
-#define DDRA
+
 #define enable            5
 #define registerselection 6
 
@@ -27,7 +27,7 @@ static volatile int i = 0;
 
 int main(void)
 {
-    DDRA = 0xFF;
+   int DDRA = 0xFF;
     DDRB = 0xFF;
     DDRD = 0b11111011;
     _delay_ms(50);
