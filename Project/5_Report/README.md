@@ -32,22 +32,22 @@ Commonly used in breadboards and perf boards, these 10K resistors make excellent
 
 ## 6. HC-SR04 SENSOR
 This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.There are only four pins that you need to worry about on the HC-SR04: VCC (Power), Trig (Trigger), Echo (Receive), and GND (Ground). You will find this sensor very easy to set up and use for your next range-finding project.This sensor has additional control circuitry that can prevent inconsistent "bouncy" data depending on the application. The HC-SR04 Ultrasonic Distance Sensor is a sensor used for detecting the distance to an object using sonar.The HC-SR04 uses non-contact ultrasound sonar to measure the distance to an object, and consists of two ultrasonic transmitters (basically speakers), a receiver, and a control circuit.
-
 ## Requirements :
 ## High Level Requirements
 |ID|	DESCRIPTION|
-|HLR01|	.|
-|HLR02|	.|
-|HLR03|.|
-|HLR04|.|
+|--|--|
+|HLR01|Ultrasonic sensor should sense the echo.|
+|HLR02|The LCD display must display the distance.|
+|HLR03|The sensor must show the distance .|
+|HLR03|The supply must turn on/off whrn switch is pressed.|
+
 
 ## Low Level Requirements
 |ID|	Description	|
-|LLR01|	.|	
-|LLR02|	.|	
-|LLR03| .|
-|LLR04|	.|	
-|LLR05| .|
+|--|--|
+|LLR01|The 5V supply must turn on when the switch is pressed|	
+|LLR02|The sensor must turn on when the switch is pressed.|	
+|LLR03|The sensor must mesaure distance by echo within its specified range.|
 
 ## SWOT Analysis
 ![image](https://user-images.githubusercontent.com/98769359/157095785-c2eb5957-48ad-4477-a412-8eface854241.png)
