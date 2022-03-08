@@ -73,3 +73,19 @@ Distance can be used without using mesauring tapes or instruments.
 Skills for repair/spare parts not available in most of the areas.
 Any sort of defect or fault in the circuit will cause problem in distance mesaurment.
 
+## 4 W's and 1 H's
+![4w and 1H](https://user-images.githubusercontent.com/98769359/157261225-a45eb048-ae29-4952-a0c0-73762bc70f5c.png)
+
+## Who:
+## o Everyone can use this device as for their commercial, industrial or domestic use.
+## What:
+## o This system is Automatic so it doesn't requires manual work which saves human time and energy.
+## When:
+## oThis system is used when the distance cannot be mesaured physically.
+## Where:
+## oIn places where mesauring distance physically is not possible.
+## How:
+## oThe ultrasonic sensor sends signals to the controller whenever it senses ECHO and display it on the LCD display .
+
+
+
