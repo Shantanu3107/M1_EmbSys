@@ -43,6 +43,7 @@ This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 
 ## Requirements :
 ## High Level Requirements
 |ID|	DESCRIPTION|
+|--|--|
 |HLR01|Ultrasonic sensor should sense the echo.|
 |HLR02|The LCD display must display the distance.|
 |HLR03|The sensor must show the distance .|
@@ -51,6 +52,7 @@ This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 
 
 ## Low Level Requirements
 |ID|	Description	|
+|--|--|
 |LLR01|The 5V supply must turn on when the switch is pressed|	
 |LLR02|The sensor must turn on when the switch is pressed.|	
 |LLR03|The sensor must mesaure distance by echo within its specified range.|
