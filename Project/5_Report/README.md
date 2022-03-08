@@ -71,8 +71,7 @@ Any sort of defect or fault in the circuit will cause problem in distance mesaur
 |Code Quality Score|Code grade|
 |--|--|
 |![image](https://user-images.githubusercontent.com/98769359/157088428-c379cbb3-d577-4cf1-9a81-f4d5051d4bb5.png)
-https://api.codiga.io/project/31636/score/svg |![image](https://user-images.githubusercontent.com/98769359/157088456-be5e6418-1f37-4e49-a4e1-980ecfaa0de0.png)
-https://api.codiga.io/project/31636/status/svg|
+https://api.codiga.io/project/31636/score/svg |![image](https://user-images.githubusercontent.com/98769359/157088456-be5e6418-1f37-4e49-a4e1-980ecfaa0de0.png)https://api.codiga.io/project/31636/status/svg|
 
 
 
