@@ -64,6 +64,14 @@ Distance can be used without using mesauring tapes or instruments.
 Skills for repair/spare parts not available in most of the areas.
 Any sort of defect or fault in the circuit will cause problem in distance mesaurment.
 
+## Block diagram
+
+![Block diagram-1](https://user-images.githubusercontent.com/98769359/157241196-65f9d911-410c-400e-a646-04ffd13ed9d9.png)
+
+## FlowChart
+![Flowchart](https://user-images.githubusercontent.com/98769359/157241250-22a76733-572f-4195-93f7-1d6413ff85bd.png)
+
+
 ## Codacy Badges
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/81c44f23f3004cd6ae702a98b3341a83)](https://www.codacy.com/gh/Shantanu3107/M2_EmbSys/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Shantanu3107/M2_EmbSys&amp;utm_campaign=Badge_Grade)
 
